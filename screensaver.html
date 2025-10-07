@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: black;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Show full image without cropping */
+        transition: opacity 1s ease-in-out;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="slideshow" src="epr21.png" alt="Screensaver">
+    <script>
+      // 👇 List all your images here (must be in the same GitHub repo)
+      const images = [
+        "epr21.png",
+        "epr21.png",
+        "epr21.png",
+        "epr21.png",        
+        "epr21.png"
+      ];
+
+      let index = 0;
+      const img = document.getElementById("slideshow");
+
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        img.style.opacity = 0; // fade out
+        setTimeout(() => {
+          img.src = images[index];
+          img.style.opacity = 1; // fade in
+        }, 1000); // fade duration
+      }, 10000); // change image every 10 seconds
+    </script>
+  </body>
+</html>
