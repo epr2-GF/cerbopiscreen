@@ -39,26 +39,26 @@
         index = (index + 1) % images.length;
         img.style.opacity = 0;
         setTimeout(() => {
-          const timestamp = new Date().getTime();
-          img.src = images[index] + "?v=" + timestamp;
+          img.src = images[index];
           img.style.opacity = 1;
         }, 1000);
       }
 
       // Start the slideshow
       if (images.length > 0) {
-        img.src = images[0] + "?v=" + new Date().getTime();
+        img.src = images[0];
         setInterval(nextImage, 10000); // change every 10 seconds
       }
 
-      // 🕒 Automatically reload HTML daily (to get fresh file from GitHub)
-      const reloadInterval = 60 * 60 * 1000; // 24 hours
+      // Optional: reload the page every hour to fetch updates
+      const reloadInterval = 60 * 60 * 1000; // 1 hour
       setTimeout(() => {
         location.reload(true);
       }, reloadInterval);
     </script>
   </body>
 </html>
+
 
 
 
